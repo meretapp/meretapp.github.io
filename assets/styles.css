@@ -390,7 +390,9 @@ section { position: relative; }
 .closing { padding: 20px 0 90px; }
 .closing .wrap { text-align: center; }
 .closing h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); font-weight: 800; margin: 0 0 14px; }
-.closing p { color: var(--muted); margin: 0 auto 28px; max-width: 46ch; font-size: 1.1rem; }
+/* Direct child only, so this subtitle style does not bleed into the form's .note and
+   .form-done paragraphs (which would otherwise inherit its larger size and wrap). */
+.closing .wrap > p { color: var(--muted); margin: 0 auto 28px; max-width: 46ch; font-size: 1.1rem; }
 .closing .cta { margin: 0 auto; align-items: center; }
 .closing .waitlist { width: 100%; }
 
