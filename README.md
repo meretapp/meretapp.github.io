@@ -12,6 +12,7 @@ way `debenapp/debenapp.github.io` serves debenapp.com. Create a repo named
 - `about/`, `privacy/`, `security/`, `terms/` - the supporting pages, in a shared dark prose layout. Privacy follows the app repo's `docs/legal/PRIVACY_POLICY.md`.
 - `assets/styles.css` - the stylesheet. One dark canvas, coral for action, violet for the idea.
 - `assets/duma-bold.ttf` - the Duma Bold wordmark face, self hosted so the site makes no external requests.
+- `assets/jetbrains-mono-regular.ttf`, `assets/jetbrains-mono-medium.ttf` - JetBrains Mono for every mono readout (the hero timer, kickers, data labels), self hosted and subset to Basic Latin so each file is tiny. Same face the Android app bundles, so the site and app read as one product. Licensed under the SIL Open Font License.
 - `assets/site.js` - one small progressive enhancement for the waitlist forms.
 - `assets/mark.svg`, `assets/favicon.svg` - the coral tile mark, the white Duma m on the coral gradient.
 - `assets/og-image.png` - the social share card, 1200x630. Its source is `assets/og.html`, rendered with the site's real wordmark component. To regenerate, serve the folder and run headless Chrome against `og.html` (see below), then downscale to 1200x630.
@@ -58,7 +59,7 @@ that `.app` is HSTS-preloaded, so the site must be reachable over HTTPS before t
 
 ## Requests and privacy
 
-The page itself loads with no external requests: system fonts plus one self hosted face, no web font
+The page itself loads with no external requests: system fonts plus two self hosted faces, no web font
 CDN, no analytics, no trackers, no cookies. The only outbound request is the one the visitor triggers
 by submitting the waitlist form, which goes to Buttondown to record their signup.
 

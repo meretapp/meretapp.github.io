@@ -32,7 +32,7 @@
   });
 })();
 
-/* The hero recording preview: the mm:ss timer ticks up once a second so the phone reads
+/* The hero recording preview: the m:ss timer ticks up once a second so the phone reads
    as an active recording alongside the scrolling waveform, and the big Pause control
    works like the app. Clicking it freezes the timer and the waveform, mutes the status
    to "Paused", and turns the button into Resume; clicking again resumes.
@@ -61,7 +61,8 @@
   var paused = false;
 
   function pad(n) { return n < 10 ? "0" + n : "" + n; }
-  function render() { timerEl.textContent = pad(Math.floor(seconds / 60)) + ":" + pad(seconds % 60); }
+  // Minutes carry no leading zero, seconds always two digits, matching the app's m:ss timer.
+  function render() { timerEl.textContent = Math.floor(seconds / 60) + ":" + pad(seconds % 60); }
   function start() { if (!interval && !reduce) interval = setInterval(function () { seconds += 1; render(); }, 1000); }
   function stop() { if (interval) { clearInterval(interval); interval = null; } }
 

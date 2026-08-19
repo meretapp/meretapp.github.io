@@ -1,6 +1,7 @@
 /* Meret landing site. Brand tokens from the app repo's docs/design/design.html and
    ui/theme/Color.kt. One dark canvas, coral for action, violet for the idea. No external
-   requests: the only web font is Duma Bold, self hosted, and there are no analytics or trackers. */
+   requests: the web fonts are Duma Bold and JetBrains Mono, both self hosted, and there are no
+   analytics or trackers. */
 
 @font-face {
   font-family: "Duma";
@@ -8,6 +9,27 @@
   font-weight: 700;
   font-display: swap;
   src: url("/assets/duma-bold.ttf") format("truetype");
+}
+
+/*
+  JetBrains Mono carries every mono readout (the hero timer, kickers, and data labels), self hosted
+  and subset to Basic Latin so it stays tiny and the page still makes no external font request. It is
+  the same face the Android app bundles, so the site and the app read as one product. Licensed under
+  the SIL Open Font License, see /assets/jetbrains-mono-OFL.txt.
+*/
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/jetbrains-mono-regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/jetbrains-mono-medium.ttf") format("truetype");
 }
 
 :root {
@@ -40,7 +62,7 @@
   --radius-lg: 26px;
   --wrap: 1120px;
   --sans: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --mono: ui-monospace, "SF Mono", "Roboto Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", "Roboto Mono", Menlo, Consolas, monospace;
 }
 
 * { box-sizing: border-box; }
@@ -242,7 +264,7 @@ h1, h2, h3 { line-height: 1.1; letter-spacing: -0.02em; margin: 0; }
 .rec-top { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; }
 .rec-dot { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
 .rec-dot b { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px var(--accent-weak); animation: blink 1.4s steps(1) infinite; }
-.rec-timer { font-family: var(--mono); font-size: 48px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--text); }
+.rec-timer { font-family: var(--mono); font-weight: 500; font-size: 48px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--text); }
 @keyframes blink { 50% { opacity: 0.25; } }
 /* the live waveform: a coral amplitude envelope with the app's exact bar heights (set
    inline). To simulate an active recording it scrolls steadily left to right. The bar
