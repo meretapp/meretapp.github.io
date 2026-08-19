@@ -195,13 +195,18 @@ h1, h2, h3 { line-height: 1.1; letter-spacing: -0.02em; margin: 0; }
    Structure and tokens are ported from docs/design/design.html (the "Capture, live"
    screen): Pause is the big center control, Stop reaches to the side, and the third
    slot is held for the planned Flag control. The waveform is animated for a live feel. */
-.stage { justify-self: center; position: relative; }
+/* perspective on the stage lets the device tilt in 3D as the page scrolls (driven in JS).
+   A closer perspective makes the tilt read clearly rather than looking flat. */
+.stage { justify-self: center; position: relative; perspective: 1000px; }
 .device {
   width: min(320px, 82vw);
   border-radius: 46px; padding: 11px;
   background: linear-gradient(160deg, #211E29, #0d0c11);
   border: 1px solid #322E3C;
   box-shadow: 0 1px 0 rgba(255,255,255,0.05) inset, 0 46px 90px -34px rgba(0,0,0,0.92), 0 0 0 1px rgba(0,0,0,0.4);
+  transform: translateY(var(--phoneY, 0px)) rotateX(var(--tiltX, 0deg)) rotateY(var(--tiltY, 0deg));
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 .screen {
   position: relative; border-radius: 36px; overflow: hidden;

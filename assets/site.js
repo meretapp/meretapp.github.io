@@ -81,3 +81,48 @@
     button.addEventListener("click", function () { setPaused(!paused); });
   }
 })();
+
+/* A gentle scroll-linked tilt on the hero phone: as the device moves through the
+   viewport it rocks a few degrees in 3D, so the page feels alive without distraction.
+   The transform is written to CSS variables that .device consumes, updated on a single
+   requestAnimationFrame per scroll. Skipped entirely for reduced-motion visitors. */
+(function () {
+  "use strict";
+
+  var device = document.querySelector(".stage .device");
+  if (!device) return;
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  var BASE_Y = -6;   // resting sideways angle, so the phone has visible depth at rest
+  var SWING_Y = 14;  // degrees the sideways tilt swings across the scroll range
+  var MAX_X = 5;     // degrees of front/back tilt
+  var MAX_SHIFT = 14; // px of vertical parallax
+  var ticking = false;
+
+  function clamp(v, lo, hi) { return v < lo ? lo : (v > hi ? hi : v); }
+
+  function update() {
+    ticking = false;
+    var rect = device.getBoundingClientRect();
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    if (rect.bottom < 0 || rect.top > vh) return; // off-screen, nothing to do
+
+    // progress: +1 when the phone sits low in the viewport, -1 when high, 0 at center.
+    // The 0.55 factor makes the tilt reach its full range within the normal scroll of
+    // the hero, so the movement is easy to feel rather than only tipping at the edges.
+    var center = rect.top + rect.height / 2;
+    var progress = clamp((center - vh / 2) / (vh * 0.55), -1, 1);
+
+    device.style.setProperty("--tiltY", (BASE_Y + progress * SWING_Y).toFixed(2) + "deg");
+    device.style.setProperty("--tiltX", (progress * -MAX_X).toFixed(2) + "deg");
+    device.style.setProperty("--phoneY", (progress * MAX_SHIFT).toFixed(1) + "px");
+  }
+
+  function onScroll() {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }
+
+  update();
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll, { passive: true });
+})();
