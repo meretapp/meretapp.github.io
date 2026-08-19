@@ -22,13 +22,14 @@ way `debenapp/debenapp.github.io` serves debenapp.com. Create a repo named
 
 The waitlist forms POST to Buttondown (`https://buttondown.com/api/emails/embed-subscribe/meret`),
 which runs double opt-in: a signup triggers a confirmation email, and the person joins the list only
-after they click it. They use Buttondown's supported embed pattern, a real form submission the browser
-follows, targeting a named popup window so the visitor stays on the landing page while Buttondown
-handles the response (including any CAPTCHA or validation) in the popup. `assets/site.js` only opens
-that popup and shows the inline "check your email to confirm" message; it does not use `fetch`, because
-the embed endpoint cannot hand a subscriber off from a background request. With JavaScript off the form
-still submits natively. To change the account, update the `action` on both forms in `index.html` and the
-popup URL in `assets/site.js`.
+after they click it. The forms use a real form submission the browser follows, targeting a hidden
+iframe (`name="bd-sink"` near the end of `index.html`), so the response loads invisibly and the visitor
+never leaves the page. `assets/site.js` only shows the inline "check your email to confirm" message; it
+does not use `fetch`, because the embed endpoint cannot hand a subscriber off from a background request.
+Trade-off: if Buttondown ever requires a CAPTCHA for a submission it cannot show in a hidden iframe, so
+that one signup would not complete; double opt-in already deters spam, so this is rare. With JavaScript
+off the form still submits natively into the iframe. To change the account, update the `action` on both
+forms in `index.html`.
 
 ## Contact addresses
 

@@ -1,14 +1,16 @@
 /* Meret landing site: the waitlist forms.
 
    The forms POST to Buttondown (https://buttondown.com/api/emails/embed-subscribe/meret)
-   using Buttondown's supported embed pattern: a real form submission that the browser
-   follows. Each form targets a named popup window, so the visitor stays on the landing
-   page while Buttondown handles the response in the popup, including any CAPTCHA or
-   validation step (a background fetch cannot do that, which is why this is not fetch).
+   with a real form submission the browser follows, targeting a hidden iframe (name
+   "bd-sink"). That keeps the visitor on the landing page: the response loads invisibly in
+   the iframe rather than navigating or opening a popup. This is a native submit, not a
+   background fetch, which the embed endpoint does not support. The one trade-off is that
+   if Buttondown ever requires a CAPTCHA for a submission it cannot be shown in a hidden
+   iframe; double opt-in already deters spam, so this is rare.
 
    Buttondown runs double opt-in, so a signup triggers a confirmation email and the person
    joins the list only after they click it. With JavaScript off, the form still submits
-   natively; the browser just opens Buttondown's page in a new window instead of a popup.
+   natively into the iframe; the inline confirmation is the only thing that needs JS.
    Formal contact (privacy, security, terms) uses support@meretapp.com; general contact
    uses hello@meretapp.com. */
 (function () {
@@ -17,14 +19,15 @@
   var forms = document.querySelectorAll("form.cta");
 
   forms.forEach(function (form) {
-    // Do NOT preventDefault: the native submit into the popup is what actually registers
-    // the signup. We only open/focus the popup window the form targets, and reflect the
-    // submission inline so the visitor gets feedback without leaving the page. The submit
-    // event fires only after the browser's own required/email validation passes.
+    // Do NOT preventDefault: the native submit into the hidden iframe is what registers the
+    // signup. We only reflect it inline. The submit event fires only after the browser's own
+    // required/email validation passes, so the confirmation shows only for a valid address.
     form.addEventListener("submit", function () {
-      window.open("https://buttondown.com/meret", "popupwindow");
       var done = form.querySelector(".form-done");
       if (done) done.classList.add("show");
+      var email = form.querySelector('input[type="email"]');
+      // Clear the field after the browser has serialized and sent the submission.
+      window.setTimeout(function () { if (email) email.value = ""; }, 150);
     });
   });
 })();

@@ -155,7 +155,7 @@
           <h1>Get the idea down. <span class="em">Find it again.</span></h1>
           <p class="lede">Meret is a second brain for musical creativity. Catch the idea the moment it strikes, then organize, rediscover, and evolve it when the moment has passed.</p>
 
-          <form class="cta" id="waitlist" action="https://buttondown.com/api/emails/embed-subscribe/meret" method="post" target="popupwindow">
+          <form class="cta" id="waitlist" action="https://buttondown.com/api/emails/embed-subscribe/meret" method="post" target="bd-sink">
             <div class="waitlist">
               <label class="visually-hidden" for="email">Email address</label>
               <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required>
@@ -367,7 +367,7 @@
       <div class="wrap">
         <h2>Never miss the next one.</h2>
         <p>Be first to record with Meret when it lands on Android.</p>
-        <form class="cta" action="https://buttondown.com/api/emails/embed-subscribe/meret" method="post" target="popupwindow">
+        <form class="cta" action="https://buttondown.com/api/emails/embed-subscribe/meret" method="post" target="bd-sink">
           <div class="waitlist">
             <label class="visually-hidden" for="email2">Email address</label>
             <input id="email2" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required>
@@ -415,6 +415,11 @@
       </p>
     </div>
   </footer>
+
+  <!-- Hidden sink for the waitlist form submissions. Both forms target this iframe, so the
+       native POST to Buttondown happens without ever leaving the page. -->
+  <iframe name="bd-sink" title="Waitlist subscription" aria-hidden="true" tabindex="-1"
+          style="position:absolute; width:0; height:0; border:0; overflow:hidden; left:-9999px"></iframe>
 
   <script src="/assets/site.js" defer></script>
 </body>
