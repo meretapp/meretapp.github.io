@@ -130,15 +130,15 @@ h1, h2, h3 { line-height: 1.1; letter-spacing: -0.02em; margin: 0; }
    to the waitlist form inside the hero and blocks scrolling until a page refresh. */
 .hero { position: relative; padding: 84px 0 56px; overflow: clip; }
 .hero::before {
-  content: ""; position: absolute; inset: -20% -10% auto auto;
-  width: 780px; height: 620px; pointer-events: none;
-  background: radial-gradient(closest-side, rgba(255,106,61,0.20), rgba(255,106,61,0) 70%);
-  filter: blur(6px);
+  content: ""; position: absolute; inset: -34% -18% auto auto;
+  width: 1120px; height: 900px; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(255,106,61,0.20), rgba(255,106,61,0.07) 45%, rgba(255,106,61,0) 72%);
+  filter: blur(8px);
 }
 .hero::after {
-  content: ""; position: absolute; inset: auto auto -30% -15%;
-  width: 620px; height: 520px; pointer-events: none;
-  background: radial-gradient(closest-side, rgba(142,123,255,0.16), rgba(142,123,255,0) 70%);
+  content: ""; position: absolute; inset: auto auto -34% -20%;
+  width: 820px; height: 680px; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(142,123,255,0.16), rgba(142,123,255,0) 72%);
 }
 .hero .wrap { position: relative; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
 
