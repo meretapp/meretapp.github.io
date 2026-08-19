@@ -360,6 +360,53 @@ section { position: relative; }
 .fine { color: var(--faint); font-size: 13px; margin: 0; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 .fine .sep { opacity: 0.5; }
 
+/* ---- Legal and prose pages (privacy, security, terms) ---- */
+.legal { padding: 56px 0 80px; }
+.legal .wrap { max-width: 760px; }
+.legal .back {
+  display: inline-flex; align-items: center; gap: 7px;
+  margin-bottom: 30px; font-weight: 600; font-size: 14px; color: var(--muted);
+}
+.legal .back:hover { color: var(--text); }
+.legal h1 { font-size: clamp(2rem, 4vw, 2.7rem); font-weight: 800; margin: 0 0 8px; }
+.legal .updated { color: var(--faint); font-family: var(--mono); font-size: 13px; margin: 0 0 32px; }
+.legal .lede { color: var(--text); font-size: 1.12rem; margin: 0 0 28px; }
+.legal h2 { font-size: 1.32rem; font-weight: 750; margin: 44px 0 12px; color: var(--text); }
+.legal h3 { font-size: 1.08rem; font-weight: 700; margin: 28px 0 10px; color: var(--text); }
+.legal p, .legal li { color: #C4BFD1; font-size: 1.02rem; }
+.legal p { margin: 0 0 16px; }
+.legal ul { padding-inline-start: 22px; margin: 0 0 16px; }
+.legal li { margin: 0 0 9px; }
+.legal li strong, .legal p strong { color: var(--text); font-weight: 650; }
+.legal a { color: var(--accent-2); }
+.legal a:hover { color: var(--accent); }
+
+/* A quiet callout for a disclaimer or a draft note */
+.legal .callout {
+  background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent);
+  border-radius: 14px; padding: 16px 20px; margin: 0 0 32px;
+}
+.legal .callout p { margin: 0; color: var(--muted); font-size: 0.96rem; }
+
+/* Permissions table */
+.legal .table-wrap { overflow-x: auto; margin: 0 0 20px; border: 1px solid var(--line); border-radius: 14px; }
+.legal table { width: 100%; border-collapse: collapse; font-size: 0.98rem; min-width: 460px; }
+.legal thead th {
+  text-align: left; padding: 13px 18px; color: var(--text); font-weight: 700;
+  background: var(--surface-2); border-bottom: 1px solid var(--line); font-size: 0.9rem;
+}
+.legal tbody td { padding: 13px 18px; color: #C4BFD1; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+.legal tbody tr:last-child td { border-bottom: none; }
+.legal tbody td:first-child { color: var(--text); font-weight: 600; white-space: nowrap; }
+@media (max-width: 560px) { .legal tbody td:first-child { white-space: normal; } }
+
+/* A short cross-link row at the foot of a legal page */
+.legal .also {
+  margin-top: 48px; padding-top: 26px; border-top: 1px solid var(--line-soft);
+  display: flex; gap: 20px; flex-wrap: wrap;
+}
+.legal .also a { font-weight: 600; font-size: 14px; }
+
 /* A tiny inline confirmation for the waitlist, shown after submit */
 .form-done { display: none; color: var(--good); font-size: 14px; margin: 2px 0 0; align-items: center; gap: 8px; }
 .form-done.show { display: flex; }
