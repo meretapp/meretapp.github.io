@@ -91,10 +91,34 @@
 
   var device = document.querySelector(".stage .device");
   if (!device) return;
+
+  // Build the phone's thickness: a stack of rounded slabs behind the front face, each a
+  // little further back in Z and a little darker, so the side reads as a solid rounded
+  // edge when the device tilts. Invisible head-on because the front face covers it.
+  (function buildDepth() {
+    var LAYERS = 22, STEP = 2.0;         // total thickness ~44px, so the side is clearly visible
+    // front of the edge is a light brushed-metal tone that catches the light, fading to
+    // near-black at the back, so the side reads as a real machined phone edge
+    var front = [120, 112, 134], back = [12, 11, 16];
+    var frag = document.createDocumentFragment();
+    for (var k = 1; k <= LAYERS; k++) {
+      var t = k / LAYERS;
+      var slab = document.createElement("div");
+      slab.className = "device-slab";
+      slab.style.transform = "translateZ(-" + (k * STEP).toFixed(2) + "px)";
+      slab.style.background = "rgb(" +
+        Math.round(front[0] + (back[0] - front[0]) * t) + "," +
+        Math.round(front[1] + (back[1] - front[1]) * t) + "," +
+        Math.round(front[2] + (back[2] - front[2]) * t) + ")";
+      frag.appendChild(slab);
+    }
+    device.insertBefore(frag, device.firstChild);
+  })();
+
   if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  var BASE_Y = -6;   // resting sideways angle, so the phone has visible depth at rest
-  var SWING_Y = 14;  // degrees the sideways tilt swings across the scroll range
+  var BASE_Y = -9;   // resting sideways angle, so the metal edge is visible even at rest
+  var SWING_Y = 15;  // degrees the sideways tilt swings across the scroll range
   var MAX_X = 5;     // degrees of front/back tilt
   var MAX_SHIFT = 14; // px of vertical parallax
   var ticking = false;
