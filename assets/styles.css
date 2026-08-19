@@ -83,18 +83,22 @@ h1, h2, h3 { line-height: 1.1; letter-spacing: -0.02em; margin: 0; }
   font-weight: 700;
   letter-spacing: 0.04em;
   color: var(--text);
-  display: inline-flex;
-  align-items: baseline;
-  line-height: 1;
+  white-space: nowrap;
 }
+/* The coral tone dot is a real disc resting on the text baseline, matching the app's
+   Wordmark composable (a 0.17em disc, AboveBaseline). vertical-align: baseline places an
+   empty inline-block's bottom edge on the baseline, so the disc sits like a low round dot
+   after "meret" at any size, rather than being nudged by a flex hack. */
 .wordmark .dot {
-  width: 0.16em;
-  height: 0.16em;
+  display: inline-block;
+  width: 0.17em;
+  height: 0.17em;
   border-radius: 50%;
   background: var(--accent);
-  margin-left: 0.06em;
-  align-self: flex-end;
-  margin-bottom: 0.06em;
+  margin-left: 0.05em;
+  /* Seat the disc a touch below the baseline (scales with the type) so it reads as a
+     grounded tone dot rather than sitting a hair high. */
+  vertical-align: -0.02em;
 }
 
 /* Header */

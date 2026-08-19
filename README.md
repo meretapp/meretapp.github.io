@@ -14,7 +14,8 @@ way `debenapp/debenapp.github.io` serves debenapp.com. Create a repo named
 - `assets/duma-bold.ttf` - the Duma Bold wordmark face, self hosted so the site makes no external requests.
 - `assets/site.js` - one small progressive enhancement for the waitlist forms.
 - `assets/mark.svg`, `assets/favicon.svg` - the coral tile mark, the white Duma m on the coral gradient.
-- `assets/og-image.svg` - the social share card. Rasterise to `og-image.png` (1200x630) if a platform refuses SVG previews, and update the `og:image` URLs.
+- `assets/og-image.png` - the social share card, 1200x630. Its source is `assets/og.html`, rendered with the site's real wordmark component. To regenerate, serve the folder and run headless Chrome against `og.html` (see below), then downscale to 1200x630.
+- `assets/og.html` - build source for the share card. Not linked from the site.
 - `CNAME`, `robots.txt`, `sitemap.xml`, `site.webmanifest`, `.nojekyll` - hosting and metadata.
 
 ## Contact addresses
@@ -47,3 +48,18 @@ python3 -m http.server 8000
 ```
 
 Then open http://localhost:8000/.
+
+## Regenerating the share image
+
+With the folder served locally, render `assets/og.html` to a PNG and downscale to 1200x630:
+
+```
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --headless=new --disable-gpu --hide-scrollbars \
+  --force-device-scale-factor=2 --window-size=1200,630 \
+  --virtual-time-budget=2500 \
+  --screenshot=assets/og-image@2x.png \
+  http://localhost:8000/assets/og.html
+sips -z 630 1200 assets/og-image@2x.png --out assets/og-image.png
+rm assets/og-image@2x.png
+```

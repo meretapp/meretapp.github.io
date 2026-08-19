@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!--
+    Source for the social share image. Rendered at exactly 1200x630 and captured to
+    assets/og-image.png. It reuses the site's real .wordmark and .dot component so the
+    coral tone dot sits exactly where it does everywhere else. Not linked from the site.
+  -->
+  <link rel="stylesheet" href="/assets/styles.css">
+  <style>
+    html, body { margin: 0; padding: 0; background: #08070B; }
+    .og {
+      position: relative; width: 1200px; height: 630px; overflow: hidden;
+      background: #08070B; color: var(--text); font-family: var(--sans);
+      padding: 92px 96px; box-sizing: border-box;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    /* The larger, upper-right coral glow from the original share card: a big soft ellipse
+       centered near (880,150) fading to nothing at its edge. */
+    .og::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 520px 360px at 880px 150px, rgba(255,106,61,0.22), rgba(255,106,61,0) 100%);
+    }
+    .og::after {
+      content: ""; position: absolute; bottom: -200px; left: -150px; width: 640px; height: 560px;
+      background: radial-gradient(closest-side, rgba(142,123,255,0.15), rgba(142,123,255,0) 70%);
+    }
+    .og > * { position: relative; z-index: 1; }
+
+    .brand { display: inline-flex; align-items: center; gap: 20px; margin-bottom: 40px; }
+    .brand img { width: 76px; height: 76px; border-radius: 19px; display: block; }
+    .brand .wordmark { font-size: 62px; }
+
+    .tagline {
+      font-weight: 800; letter-spacing: -0.02em;
+      font-size: 60px; line-height: 1.04; margin: 0 0 20px; color: var(--text); max-width: 16ch;
+    }
+    .tagline .em { color: var(--accent); }
+    .sub { font-size: 27px; color: var(--muted); margin: 0 0 48px; line-height: 1.5; }
+
+    /* Full-width waveform: one continuous audio track running the width of the card,
+       ends softly faded so it reads as a track rather than a boxed chart. */
+    .ogwave {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 104px; margin: 0 -96px; padding: 0 40px;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+              mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+    }
+    .ogwave span { width: 5px; border-radius: 3px; background: linear-gradient(var(--accent-2), var(--accent)); }
+    .ogwave span.v { background: linear-gradient(var(--violet), #6f5cf0); }
+  </style>
+</head>
+<body>
+  <div class="og">
+    <div class="brand">
+      <img src="/assets/mark.svg" alt="">
+      <span class="wordmark">meret<span class="dot" aria-hidden="true"></span></span>
+    </div>
+    <h1 class="tagline">A second brain for <span class="em">musical creativity.</span></h1>
+    <p class="sub">Capture the idea the moment it strikes.<br>Find it again months later.</p>
+    <div class="ogwave">
+        <span style="height:8px"></span>
+        <span style="height:18px"></span>
+        <span style="height:22px"></span>
+        <span style="height:23px"></span>
+        <span style="height:24px"></span>
+        <span class="v" style="height:27px"></span>
+        <span style="height:31px"></span>
+        <span style="height:32px"></span>
+        <span style="height:27px"></span>
+        <span style="height:18px"></span>
+        <span style="height:13px"></span>
+        <span style="height:14px"></span>
+        <span style="height:20px"></span>
+        <span class="v" style="height:29px"></span>
+        <span style="height:34px"></span>
+        <span style="height:33px"></span>
+        <span style="height:33px"></span>
+        <span style="height:37px"></span>
+        <span style="height:50px"></span>
+        <span style="height:64px"></span>
+        <span style="height:71px"></span>
+        <span class="v" style="height:67px"></span>
+        <span style="height:54px"></span>
+        <span style="height:42px"></span>
+        <span style="height:37px"></span>
+        <span style="height:39px"></span>
+        <span style="height:42px"></span>
+        <span style="height:38px"></span>
+        <span style="height:27px"></span>
+        <span class="v" style="height:17px"></span>
+        <span style="height:17px"></span>
+        <span style="height:27px"></span>
+        <span style="height:47px"></span>
+        <span style="height:63px"></span>
+        <span style="height:68px"></span>
+        <span style="height:64px"></span>
+        <span style="height:61px"></span>
+        <span class="v" style="height:64px"></span>
+        <span style="height:74px"></span>
+        <span style="height:82px"></span>
+        <span style="height:78px"></span>
+        <span style="height:61px"></span>
+        <span style="height:39px"></span>
+        <span style="height:24px"></span>
+        <span style="height:24px"></span>
+        <span class="v" style="height:32px"></span>
+        <span style="height:39px"></span>
+        <span style="height:38px"></span>
+        <span style="height:32px"></span>
+        <span style="height:29px"></span>
+        <span style="height:38px"></span>
+        <span style="height:57px"></span>
+        <span style="height:78px"></span>
+        <span class="v" style="height:88px"></span>
+        <span style="height:83px"></span>
+        <span style="height:70px"></span>
+        <span style="height:59px"></span>
+        <span style="height:58px"></span>
+        <span style="height:61px"></span>
+        <span style="height:61px"></span>
+        <span style="height:50px"></span>
+        <span class="v" style="height:31px"></span>
+        <span style="height:18px"></span>
+        <span style="height:18px"></span>
+        <span style="height:22px"></span>
+        <span style="height:37px"></span>
+        <span style="height:48px"></span>
+        <span style="height:49px"></span>
+        <span style="height:45px"></span>
+        <span class="v" style="height:46px"></span>
+        <span style="height:54px"></span>
+        <span style="height:67px"></span>
+        <span style="height:74px"></span>
+        <span style="height:71px"></span>
+        <span style="height:56px"></span>
+        <span style="height:40px"></span>
+        <span style="height:31px"></span>
+        <span class="v" style="height:30px"></span>
+        <span style="height:32px"></span>
+        <span style="height:31px"></span>
+        <span style="height:25px"></span>
+        <span style="height:16px"></span>
+        <span style="height:14px"></span>
+        <span style="height:18px"></span>
+        <span style="height:29px"></span>
+        <span class="v" style="height:38px"></span>
+        <span style="height:41px"></span>
+        <span style="height:38px"></span>
+        <span style="height:32px"></span>
+        <span style="height:29px"></span>
+        <span style="height:29px"></span>
+        <span style="height:29px"></span>
+        <span style="height:26px"></span>
+        <span class="v" style="height:19px"></span>
+        <span style="height:12px"></span>
+        <span style="height:8px"></span>
+    </div>
+  </div>
+</body>
+</html>
