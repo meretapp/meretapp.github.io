@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://meretapp.com/sitemap.xml
+Sitemap: https://meret.app/sitemap.xml

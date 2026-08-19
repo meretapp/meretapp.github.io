@@ -11,8 +11,8 @@
    Buttondown runs double opt-in, so a signup triggers a confirmation email and the person
    joins the list only after they click it. With JavaScript off, the form still submits
    natively into the iframe; the inline confirmation is the only thing that needs JS.
-   Formal contact (privacy, security, terms) uses support@meretapp.com; general contact
-   uses hello@meretapp.com. */
+   Formal contact (privacy, security, terms) uses support@meret.app; general contact
+   uses hello@meret.app. */
 (function () {
   "use strict";
 

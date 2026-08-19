@@ -1,10 +1,10 @@
-# meretapp.com
+# meret.app
 
 The landing page for **Meret**, a second brain for musical creativity on Android.
 
 Plain static site, no build step, no dependencies. Meant to be served by GitHub Pages, the same
 way `debenapp/debenapp.github.io` serves debenapp.com. Create a repo named
-`meretapp/meretapp.github.io`, push this folder, and point the `meretapp.com` DNS at GitHub Pages.
+`meretapp/meretapp.github.io`, push this folder, and point the `meret.app` DNS at GitHub Pages.
 
 ## Structure
 
@@ -33,15 +33,26 @@ forms in `index.html`.
 
 ## Contact addresses
 
-Two inboxes on the `meretapp.com` domain, split by function. Make sure both exist before launch.
+Two inboxes on the `meret.app` domain, split by function. Make sure both exist before launch.
 
-- `hello@meretapp.com` - the friendly, generic inbox. Named on the pages for general contact.
-- `support@meretapp.com` - the formal inbox. Used by the privacy, security, and terms pages, including security vulnerability reports.
+- `hello@meret.app` - the friendly, generic inbox. Named on the pages for general contact.
+- `support@meret.app` - the formal inbox. Used by the privacy, security, and terms pages, including security vulnerability reports.
+
+## Domains
+
+`meret.app` is the primary, canonical domain for the site and email. `meretapp.com` is owned too
+and should 301-redirect to `https://meret.app` at the registrar or via Cloudflare, so it never
+competes for SEO and cannot be squatted. GitHub Pages serves one custom domain (the `CNAME`,
+`meret.app`), so the `.com` redirect is set up at the DNS/registrar level, not in this repo. Note
+that `.app` is HSTS-preloaded, so the site must be reachable over HTTPS before the domain is shared.
 
 ## Before it goes live
 
-- Confirm the `meretapp.com` domain, or change every absolute URL in `index.html`, `CNAME`,
-  `robots.txt`, and `sitemap.xml` to the domain you use.
+- Point `meret.app` DNS at GitHub Pages (four A records to 185.199.108-111.153, `www` CNAME to
+  `meretapp.github.io`), set the custom domain in repo Settings and enforce HTTPS once the cert issues.
+- Set up `meret.app` email (forwarding is enough to receive `hello@` and `support@`).
+- If you ever change the canonical domain, update every absolute URL in `index.html`, `CNAME`,
+  `robots.txt`, and `sitemap.xml`.
 - Have the privacy and terms wording reviewed for your region before relying on it. The visible draft
   notice has been removed, so the pages now read as final.
 
