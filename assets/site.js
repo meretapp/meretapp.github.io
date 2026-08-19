@@ -1,9 +1,10 @@
 /* Meret landing site, one small progressive enhancement for the waitlist forms.
    No external requests. With JavaScript off, each form still works as a plain mailto form.
 
-   NOTE: hello@meretapp.com is a placeholder. To collect signups without opening the
-   visitor's mail client, point each form's `action` at your own form endpoint (for
-   example a hosted form service or a serverless handler) and remove this handler. */
+   The waitlist address is hello@meretapp.com, the friendly, generic inbox. To collect
+   signups without opening the visitor's mail client, point each form's `action` at your
+   own form endpoint (a hosted form service or a serverless handler) and remove this
+   handler. Formal contact (privacy, security, terms) uses support@meretapp.com. */
 (function () {
   "use strict";
 
