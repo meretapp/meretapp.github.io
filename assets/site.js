@@ -1,34 +1,30 @@
-/* Meret landing site, one small progressive enhancement for the waitlist forms.
-   No external requests. With JavaScript off, each form still works as a plain mailto form.
+/* Meret landing site: the waitlist forms.
 
-   The waitlist address is hello@meretapp.com, the friendly, generic inbox. To collect
-   signups without opening the visitor's mail client, point each form's `action` at your
-   own form endpoint (a hosted form service or a serverless handler) and remove this
-   handler. Formal contact (privacy, security, terms) uses support@meretapp.com. */
+   The forms POST to Buttondown (https://buttondown.com/api/emails/embed-subscribe/meret)
+   using Buttondown's supported embed pattern: a real form submission that the browser
+   follows. Each form targets a named popup window, so the visitor stays on the landing
+   page while Buttondown handles the response in the popup, including any CAPTCHA or
+   validation step (a background fetch cannot do that, which is why this is not fetch).
+
+   Buttondown runs double opt-in, so a signup triggers a confirmation email and the person
+   joins the list only after they click it. With JavaScript off, the form still submits
+   natively; the browser just opens Buttondown's page in a new window instead of a popup.
+   Formal contact (privacy, security, terms) uses support@meretapp.com; general contact
+   uses hello@meretapp.com. */
 (function () {
   "use strict";
 
   var forms = document.querySelectorAll("form.cta");
 
   forms.forEach(function (form) {
-    form.addEventListener("submit", function (event) {
-      var email = form.querySelector('input[type="email"]');
-      if (!email || !email.checkValidity()) {
-        return; // let the browser show its native validation message
-      }
-
-      event.preventDefault();
-
-      // Open the visitor's mail client with the address prefilled, then confirm inline.
-      var address = "hello@meretapp.com";
-      var subject = encodeURIComponent("Meret waitlist");
-      var body = encodeURIComponent("Please add me to the Meret waitlist: " + email.value);
-      window.location.href = "mailto:" + address + "?subject=" + subject + "&body=" + body;
-
+    // Do NOT preventDefault: the native submit into the popup is what actually registers
+    // the signup. We only open/focus the popup window the form targets, and reflect the
+    // submission inline so the visitor gets feedback without leaving the page. The submit
+    // event fires only after the browser's own required/email validation passes.
+    form.addEventListener("submit", function () {
+      window.open("https://buttondown.com/meret", "popupwindow");
       var done = form.querySelector(".form-done");
       if (done) done.classList.add("show");
-      email.value = "";
-      email.blur();
     });
   });
 })();

@@ -18,26 +18,37 @@ way `debenapp/debenapp.github.io` serves debenapp.com. Create a repo named
 - `assets/og.html` - build source for the share card. Not linked from the site.
 - `CNAME`, `robots.txt`, `sitemap.xml`, `site.webmanifest`, `.nojekyll` - hosting and metadata.
 
+## Waitlist
+
+The waitlist forms POST to Buttondown (`https://buttondown.com/api/emails/embed-subscribe/meret`),
+which runs double opt-in: a signup triggers a confirmation email, and the person joins the list only
+after they click it. They use Buttondown's supported embed pattern, a real form submission the browser
+follows, targeting a named popup window so the visitor stays on the landing page while Buttondown
+handles the response (including any CAPTCHA or validation) in the popup. `assets/site.js` only opens
+that popup and shows the inline "check your email to confirm" message; it does not use `fetch`, because
+the embed endpoint cannot hand a subscriber off from a background request. With JavaScript off the form
+still submits natively. To change the account, update the `action` on both forms in `index.html` and the
+popup URL in `assets/site.js`.
+
 ## Contact addresses
 
 Two inboxes on the `meretapp.com` domain, split by function. Make sure both exist before launch.
 
-- `hello@meretapp.com` - the friendly, generic inbox. Used by the waitlist forms.
+- `hello@meretapp.com` - the friendly, generic inbox. Named on the pages for general contact.
 - `support@meretapp.com` - the formal inbox. Used by the privacy, security, and terms pages, including security vulnerability reports.
 
 ## Before it goes live
 
-- To collect waitlist signups without opening the visitor's mail client, point each form `action`
-  at your own form endpoint and drop the handler in `assets/site.js`. See the note at the top of that file.
 - Confirm the `meretapp.com` domain, or change every absolute URL in `index.html`, `CNAME`,
   `robots.txt`, and `sitemap.xml` to the domain you use.
 - Have the privacy and terms wording reviewed for your region before relying on it. The visible draft
   notice has been removed, so the pages now read as final.
 
-## No external requests
+## Requests and privacy
 
-System fonts plus one self hosted face. No web font CDN, no analytics, no trackers. The same
-privacy promise the app makes.
+The page itself loads with no external requests: system fonts plus one self hosted face, no web font
+CDN, no analytics, no trackers, no cookies. The only outbound request is the one the visitor triggers
+by submitting the waitlist form, which goes to Buttondown to record their signup.
 
 ## Local preview
 
