@@ -191,62 +191,83 @@ h1, h2, h3 { line-height: 1.1; letter-spacing: -0.02em; margin: 0; }
 .note { color: var(--faint); font-size: 13.5px; margin: 2px 0 0; display: flex; align-items: center; gap: 7px; }
 .note svg { width: 15px; height: 15px; flex: none; color: var(--good); }
 
-/* ---- The phone: an artistic mock of the Capture screen, built from the app's own tokens ---- */
+/* ---- The phone: a faithful mock of the app's live Recording screen.
+   Structure and tokens are ported from docs/design/design.html (the "Capture, live"
+   screen): Pause is the big center control, Stop reaches to the side, and the third
+   slot is held for the planned Flag control. The waveform is animated for a live feel. */
 .stage { justify-self: center; position: relative; }
 .device {
   width: min(320px, 82vw);
-  border-radius: 44px; padding: 11px;
+  border-radius: 46px; padding: 11px;
   background: linear-gradient(160deg, #211E29, #0d0c11);
   border: 1px solid #322E3C;
   box-shadow: 0 1px 0 rgba(255,255,255,0.05) inset, 0 46px 90px -34px rgba(0,0,0,0.92), 0 0 0 1px rgba(0,0,0,0.4);
 }
 .screen {
-  position: relative; border-radius: 34px; overflow: hidden;
+  position: relative; border-radius: 36px; overflow: hidden;
   background: var(--ink); aspect-ratio: 320 / 690; display: flex; flex-direction: column;
 }
-.statusbar {
+/* status bar */
+.screen .statusbar {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 16px 22px 4px; font-family: var(--mono); font-size: 12px; color: var(--muted); flex: 0 0 auto;
+  padding: 14px 22px 6px; font-family: var(--mono); font-size: 12px; color: var(--muted); flex: 0 0 auto;
 }
-.statusbar .brandrow { display: inline-flex; align-items: baseline; }
-.statusbar .wordmark { font-size: 15px; }
-.rec-face { flex: 1 1 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; padding: 0 24px; position: relative; }
-.rec-tag {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent);
-}
-.rec-tag .d { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: blink 1.6s steps(1) infinite; }
+.screen .dots { display: flex; gap: 5px; align-items: center; }
+.screen .dots i { width: 5px; height: 5px; border-radius: 50%; background: var(--faint); display: inline-block; }
+.screen .bat { width: 22px; height: 11px; border: 1px solid var(--muted); border-radius: 3px; position: relative; }
+/* a partial green charge, matching the design's status bar battery */
+.screen .bat::after { content: ""; position: absolute; inset: 2px; right: 7px; background: var(--good); border-radius: 1px; }
+/* app shell and app bar */
+.screen .app { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.screen .appbar { padding: 8px 20px 4px; display: flex; align-items: center; gap: 10px; flex: 0 0 auto; }
+.screen .title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--text); }
+.screen .body { flex: 1; min-height: 0; overflow: hidden; padding: 6px 18px 12px; display: flex; flex-direction: column; gap: 12px; }
+/* the live recording panel */
+.rec-live { flex: 1; display: flex; flex-direction: column; }
+.rec-top { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; }
+.rec-dot { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+.rec-dot b { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px var(--accent-weak); animation: blink 1.4s steps(1) infinite; }
+.rec-timer { font-family: var(--mono); font-size: 48px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--text); }
 @keyframes blink { 50% { opacity: 0.25; } }
-.rec-timer { font-family: var(--mono); font-size: 46px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--text); }
+/* the live waveform: a coral amplitude envelope with the app's exact bar heights (set
+   inline). To simulate an active recording it scrolls steadily left to right. The bar
+   sequence is duplicated into one track so the loop is seamless, and the two ends are
+   masked so bars fade in and out rather than popping at the edges. */
+.rec-wave {
+  height: 72px; width: 100%; overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+.rec-wave-track {
+  display: flex; align-items: center; gap: 3px; height: 100%; width: max-content;
+  animation: recscroll 7s linear infinite;
+}
+.rec-wave-track i { flex: 0 0 auto; width: 3px; border-radius: 2px; background: var(--accent); }
+/* translate by half the track (one full copy) so copy 2 lands exactly where copy 1 began */
+@keyframes recscroll { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+/* controls: Pause is the big center button, Stop reaches to the side, third slot held for Flag */
+.rec-controls { display: flex; align-items: flex-start; justify-content: center; gap: 30px; padding: 6px 0 4px; }
+.rcwrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.rcwrap span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); }
+.rcwrap.center span { color: var(--accent); }
+.rc { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-2); border: 1px solid var(--line); color: var(--text); }
+.rc svg { width: 24px; height: 24px; }
+.rc.big { width: 84px; height: 84px; background: var(--accent); color: #180b06; border: none; box-shadow: 0 18px 44px -16px rgba(255,106,61,0.75); }
+.rc.big svg { width: 30px; height: 30px; }
+/* the Pause control is clickable: it toggles the preview between recording and paused */
+.rcwrap.center .rc.big { cursor: pointer; transition: transform 0.12s ease; }
+.rcwrap.center .rc.big:active { transform: scale(0.95); }
 
-/* the big coral record disc: the whole lower screen is the button */
-.rec-cta {
-  position: relative; width: 76%; padding: 60px 0; margin-top: 6px;
-  border-radius: 30px; display: grid; place-items: center;
-  background: radial-gradient(120% 120% at 50% 0%, rgba(255,138,99,0.16), rgba(255,106,61,0.04) 60%, transparent 75%);
-  border: 1px solid var(--accent-line);
-}
-.rec-disc {
-  width: 96px; height: 96px; border-radius: 50%;
-  background: linear-gradient(150deg, var(--accent-2), var(--accent-deep));
-  box-shadow: 0 18px 44px -14px rgba(226,75,37,0.7), 0 0 0 10px var(--accent-weak);
-  display: grid; place-items: center;
-}
-.rec-disc .square { width: 30px; height: 30px; border-radius: 8px; background: #fff; }
-.rec-hint { font-size: 12px; color: var(--faint); }
-
-/* live waveform */
-.wave { display: flex; align-items: center; justify-content: center; gap: 3px; height: 54px; width: 78%; }
-.wave span {
-  flex: 1 1 auto; max-width: 5px; border-radius: 3px;
-  background: linear-gradient(var(--accent-2), var(--accent));
-  animation: bar 1.1s ease-in-out infinite;
-}
-.wave span:nth-child(3n) { background: linear-gradient(var(--violet), #6f5cf0); }
-@keyframes bar { 0%, 100% { height: 18%; } 50% { height: 100%; } }
+/* paused state: the status goes muted and still, the waveform holds, the timer freezes
+   (handled in JS), and the button becomes Resume (icon swapped in JS), mirroring the app */
+.is-paused .rec-dot { color: var(--muted); }
+.is-paused .rec-dot b { background: var(--muted); box-shadow: none; animation: none; }
+.is-paused .rec-wave-track { animation-play-state: paused; }
+/* home indicator */
+.home-indicator { flex: 0 0 auto; display: flex; justify-content: center; padding: 12px 0 14px; }
+.home-indicator::after { content: ""; width: 118px; height: 5px; border-radius: 3px; background: var(--surface-3); }
 @media (prefers-reduced-motion: reduce) {
-  .wave span, .rec-tag .d, .eyebrow .live { animation: none; }
-  .wave span { height: 55%; }
+  .rec-wave-track, .rec-dot b, .eyebrow .live { animation: none; }
 }
 
 /* Hero collapses to a single column on narrow screens, phone below the copy. */
