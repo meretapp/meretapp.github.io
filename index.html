@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meret - A second brain for musical creativity</title>
+  <meta name="description" content="Meret is a creative vault for musicians. Capture a musical idea the moment it strikes, then organize, rediscover, and evolve it later. Recording comes first, everything stays on your phone.">
+  <link rel="canonical" href="https://meretapp.com/">
+
+  <meta name="author" content="Tarek Raafat">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="theme-color" content="#08070B">
+  <meta name="application-name" content="Meret">
+  <meta name="apple-mobile-web-app-title" content="Meret">
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/favicon.svg">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Meret">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Meret - A second brain for musical creativity">
+  <meta property="og:description" content="Capture a musical idea the moment it strikes, then organize, rediscover, and evolve it later. Recording comes first, everything stays on your phone.">
+  <meta property="og:url" content="https://meretapp.com/">
+  <meta property="og:image" content="https://meretapp.com/assets/og-image.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Meret - a second brain for musical creativity">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Meret - A second brain for musical creativity">
+  <meta name="twitter:description" content="Capture a musical idea the moment it strikes, then organize, rediscover, and evolve it later. Everything stays on your phone.">
+  <meta name="twitter:image" content="https://meretapp.com/assets/og-image.svg">
+
+  <link rel="preload" as="font" type="font/ttf" href="/assets/duma-bold.ttf" crossorigin>
+  <link rel="stylesheet" href="/assets/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://meretapp.com/#organization",
+        "name": "Meret",
+        "url": "https://meretapp.com/",
+        "logo": "https://meretapp.com/assets/favicon.svg",
+        "founder": { "@type": "Person", "name": "Tarek Raafat" },
+        "description": "Meret is a second brain for musical creativity, an Android app that helps musicians capture, organize, rediscover, and evolve their musical ideas."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://meretapp.com/#website",
+        "url": "https://meretapp.com/",
+        "name": "Meret",
+        "publisher": { "@id": "https://meretapp.com/#organization" },
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "MobileApplication",
+        "@id": "https://meretapp.com/#app",
+        "name": "Meret",
+        "operatingSystem": "Android",
+        "applicationCategory": "MultimediaApplication",
+        "url": "https://meretapp.com/",
+        "publisher": { "@id": "https://meretapp.com/#organization" },
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/PreOrder"
+        },
+        "description": "A creative vault for musicians. Start recording with almost no friction and keep playing, then organize, search, and rediscover your ideas later. Original recordings are preserved, and everything stays on your phone.",
+        "featureList": [
+          "Friction-free recording that lets you ignore the phone and keep playing",
+          "A separate review mode for organizing after capture",
+          "Sessions and musical ideas as distinct, connected concepts",
+          "Mark a moment inside a long session and save it as an idea",
+          "Search and rediscover ideas by meaningful creative metadata",
+          "Non-destructive handling that preserves your original recordings",
+          "Offline-first: capture, save, playback, and search work with no connection"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://meretapp.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Meret?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Meret is a second brain for musical creativity. It is a creative vault for capturing, organizing, rediscovering, and evolving musical ideas. The goal is to turn a fleeting moment of inspiration into a durable idea you can still find and use months or years later." }
+          },
+          {
+            "@type": "Question",
+            "name": "How is Meret different from a voice recorder?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A recorder gives you a pile of files named by timestamp. Meret keeps the idea, not just the audio. Recording stays effortless, and then a separate review mode lets you name, tag, mark ideas inside a session, and connect related ideas, so nothing gets lost in a folder." }
+          },
+          {
+            "@type": "Question",
+            "name": "Will recording ever get in my way?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Protecting creative flow is the first principle. There are no mandatory forms, prompts, or tagging on the recording path. You start recording and then ignore the phone. Organizing happens later, on your terms." }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between a session and an idea?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A session is a single recording, like one hour of improvising. An idea is a moment worth keeping. One session can hold many ideas, and an idea can point at a whole session or a range of seconds inside it. Meret keeps them as distinct, connected things instead of collapsing both into one file." }
+          },
+          {
+            "@type": "Question",
+            "name": "Are my original recordings safe?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Your source recordings are treated as irreplaceable creative assets. Meret is non-destructive by design: it never silently trims, overwrites, or deletes an original. Edits and exports create new derived files and leave the source untouched." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Meret need an internet connection?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. The core loop is offline-first. Capture, save, playback, review, and local search all work with no connection, so nothing sits between inspiration and a safely saved recording." }
+          },
+          {
+            "@type": "Question",
+            "name": "When can I get Meret?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Meret is in active development for Android. Join the waitlist and you will be the first to know when it is ready to install." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/" aria-label="Meret home">
+        <img src="/assets/mark.svg" alt="" width="28" height="28">
+        <span class="wordmark">meret<span class="dot" aria-hidden="true"></span></span>
+      </a>
+      <nav>
+        <a href="#loop">The loop</a>
+        <a href="#feel">How it feels</a>
+        <a href="#story">Why Meret</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-cta" href="#waitlist">Get early access</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="intro">
+          <span class="eyebrow"><span class="live" aria-hidden="true"></span> Coming to Android</span>
+          <h1>Get the idea down. <span class="em">Find it again.</span></h1>
+          <p class="lede">Meret is a second brain for musical creativity. Catch the idea the moment it strikes, then organize, rediscover, and evolve it when the moment has passed.</p>
+
+          <form class="cta" id="waitlist" action="mailto:hello@meretapp.com" method="post" enctype="text/plain" novalidate>
+            <div class="waitlist">
+              <label class="visually-hidden" for="email">Email address</label>
+              <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required>
+              <button class="btn" type="submit">Notify me</button>
+            </div>
+            <p class="note">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 11.5L11 13.5L15.5 9M20 12c0 4.9-5.35 8.48-7.3 9.61-.22.13-.33.19-.49.23-.12.03-.3.03-.42 0-.16-.04-.27-.1-.49-.23C8.85 20.48 4 16.9 4 12V7.22c0-.8 0-1.2.13-1.54.11-.31.3-.58.54-.8.28-.24.65-.38 1.4-.66l5.36-2.01c.21-.08.31-.12.42-.13.09-.02.19-.02.28 0 .1.01.21.05.42.13l5.36 2.01c.75.28 1.12.42 1.4.66.24.22.43.49.54.8.13.34.13.74.13 1.54V12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              No spam. One note when it is ready, then nothing.
+            </p>
+            <p class="form-done" id="done" role="status">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              You are on the list. We will be in touch.
+            </p>
+          </form>
+        </div>
+
+        <!-- Artistic mock of the Capture screen, built from the app's own tokens -->
+        <div class="stage" aria-hidden="true">
+          <div class="device">
+            <div class="screen">
+              <div class="statusbar">
+                <span class="brandrow"><span class="wordmark">meret<span class="dot"></span></span></span>
+                <span>9:41</span>
+              </div>
+              <div class="rec-face">
+                <span class="rec-tag"><span class="d"></span> Recording</span>
+                <span class="rec-timer">01:24</span>
+                <div class="wave">
+                  <span style="animation-delay:-0.9s"></span><span style="animation-delay:-0.2s"></span>
+                  <span style="animation-delay:-0.6s"></span><span style="animation-delay:-1.0s"></span>
+                  <span style="animation-delay:-0.35s"></span><span style="animation-delay:-0.75s"></span>
+                  <span style="animation-delay:-0.15s"></span><span style="animation-delay:-0.5s"></span>
+                  <span style="animation-delay:-0.95s"></span><span style="animation-delay:-0.3s"></span>
+                  <span style="animation-delay:-0.7s"></span><span style="animation-delay:-0.1s"></span>
+                  <span style="animation-delay:-0.55s"></span><span style="animation-delay:-0.85s"></span>
+                  <span style="animation-delay:-0.25s"></span><span style="animation-delay:-0.65s"></span>
+                </div>
+                <div class="rec-cta">
+                  <div class="rec-disc"><span class="square"></span></div>
+                </div>
+                <span class="rec-hint">The whole screen is the button</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The creative loop -->
+    <section class="loop" id="loop">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">One creative loop</span>
+          <h2>Three destinations, one loop</h2>
+          <p>Every idea moves through the same rhythm. You capture it, it settles into your library, and the moments worth keeping become ideas you can return to.</p>
+        </div>
+        <div class="loop-grid">
+          <article class="dest capture">
+            <span class="arrow" aria-hidden="true">&rarr;</span>
+            <span class="num">01</span>
+            <div class="ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v6a3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 11a7 7 0 0 1-14 0M12 18v3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Capture</h3>
+            <p>Hit record without looking and keep playing. No forms, no setup, no decisions. The phone gets out of the way so the idea can land.</p>
+          </article>
+          <article class="dest library">
+            <span class="arrow" aria-hidden="true">&rarr;</span>
+            <span class="num">02</span>
+            <div class="ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 19V5M9 19V8M14 19v-6M19 19V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Library</h3>
+            <p>Sessions gather by time, each with its own waveform. Add a title, a mood, an instrument later, so a take is never just a timestamp again.</p>
+          </article>
+          <article class="dest idea">
+            <span class="num">03</span>
+            <div class="ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.1 1 2V16h6v-.5c0-.9.3-1.3 1-2A6 6 0 0 0 12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Ideas</h3>
+            <p>Loop a section, mark a range, and lift it out as an idea. Connect it to other ideas across sessions and watch a fragment grow into a song.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it feels -->
+    <section class="feel" id="feel">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">How it feels in the hand</span>
+          <h2>Built to protect the moment</h2>
+          <p>Meret is not a recorder dressed up with folders. Every choice defends your flow first and your ideas forever.</p>
+        </div>
+        <div class="feel-grid">
+          <div class="feature">
+            <div class="fi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2 4.5 12.5c-.4.5-.6.7-.6 1 0 .2.1.4.3.5.2.2.5.2 1 .2H12l-1 7 8.5-10.5c.4-.5.6-.7.6-1 0-.2-.1-.4-.3-.5-.2-.2-.5-.2-1-.2H12l1-7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div>
+              <h3>Capture now, organize later</h3>
+              <p>Recording and review are separate modes on purpose. Metadata, tags, and enrichment wait until inspiration has had its turn.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="fi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.4" fill="currentColor"/></svg></div>
+            <div>
+              <h3>Hit it without looking</h3>
+              <p>The whole screen is the record button, one large forgiving target. Pause sits center, stopping takes a deliberate reach, so nothing ends by accident.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="fi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.2-3.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div>
+              <h3>Findable in seconds</h3>
+              <p>Sort and filter live in one control. Search by the creative metadata that actually means something to you, and the right take surfaces fast.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="fi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2 4 5v6c0 5 3.4 8.3 8 10 4.6-1.7 8-5 8-10V5l-8-3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div>
+              <h3>Your vault, your phone</h3>
+              <p>The core loop is offline-first and non-destructive. Your original recordings are never silently changed, and nothing has to leave the device.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Meret -->
+    <section class="story" id="story">
+      <div class="wrap">
+        <div class="band">
+          <span class="kicker">Why Meret</span>
+          <h2>Named for the goddess of music herself</h2>
+          <p>In ancient Egypt, Meret was the goddess of music and song. She was pictured setting the rhythm with her hands, the one who brought things into their proper order through sound. Music was not noise to be filed away. It was how order was made.</p>
+          <p>Ideas do not arrive on schedule. They come while you are warming up, humming in traffic, half asleep with a guitar in your lap. Most of them vanish because catching them means fumbling with a phone, and by the time you do, the feeling is gone.</p>
+          <p class="close">Meret is drawn the same way its namesake worked. <strong>Capture the moment cleanly, then bring it into order.</strong> Start recording and keep playing. Later, when the moment has passed, name it, mark the parts that matter, and find them again. Your ideas kept in their proper order, so none of them are lost.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">Questions, answered</span>
+          <h2>The short version</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>What is Meret?</summary>
+            <p>Meret is a second brain for musical creativity, a creative vault for capturing, organizing, rediscovering, and evolving musical ideas. The goal is to turn a fleeting moment of inspiration into a durable idea you can still find and use months or years later.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How is it different from a voice recorder?</summary>
+            <p>A recorder gives you a pile of files named by timestamp. Meret keeps the idea, not just the audio. Recording stays effortless, and then a separate review mode lets you name, tag, mark ideas inside a session, and connect related ideas, so nothing gets lost in a folder.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Will recording ever get in my way?</summary>
+            <p>No. Protecting creative flow is the first principle. There are no mandatory forms, prompts, or tagging on the recording path. You start recording and then ignore the phone. Organizing happens later, on your terms.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What is the difference between a session and an idea?</summary>
+            <p>A session is a single recording, like one hour of improvising. An idea is a moment worth keeping. One session can hold many ideas, and an idea can point at a whole session or a range of seconds inside it. Meret keeps them as distinct, connected things instead of collapsing both into one file.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Are my original recordings safe?</summary>
+            <p>Yes. Your source recordings are treated as irreplaceable creative assets. Meret is non-destructive by design: it never silently trims, overwrites, or deletes an original. Edits and exports create new derived files and leave the source untouched.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Does Meret need an internet connection?</summary>
+            <p>No. The core loop is offline-first. Capture, save, playback, review, and local search all work with no connection, so nothing sits between inspiration and a safely saved recording.</p>
+          </details>
+          <details class="faq-item">
+            <summary>When can I get Meret?</summary>
+            <p>Meret is in active development for Android. Join the waitlist below and you will be the first to know when it is ready to install.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing -->
+    <section class="closing">
+      <div class="wrap">
+        <h2>Never miss the next one.</h2>
+        <p>Be first to record with Meret when it lands on Android.</p>
+        <form class="cta" action="mailto:hello@meretapp.com" method="post" enctype="text/plain" novalidate>
+          <div class="waitlist">
+            <label class="visually-hidden" for="email2">Email address</label>
+            <input id="email2" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required>
+            <button class="btn" type="submit">Join the waitlist</button>
+          </div>
+          <p class="form-done" role="status">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            You are on the list. We will be in touch.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-top">
+        <a class="brand" href="/" aria-label="Meret home">
+          <img src="/assets/mark.svg" alt="" width="26" height="26">
+          <span class="wordmark">meret<span class="dot" aria-hidden="true"></span></span>
+        </a>
+        <nav class="foot-links">
+          <a href="#loop">The loop</a>
+          <a href="#feel">How it feels</a>
+          <a href="#story">Why Meret</a>
+          <a href="#faq">FAQ</a>
+          <a href="https://github.com/meretapp">GitHub</a>
+        </nav>
+      </div>
+      <p class="fine">
+        <span>&copy; 2026 Meret</span>
+        <span class="sep">&middot;</span>
+        <span>A second brain for musical creativity.</span>
+        <span class="sep">&middot;</span>
+        <span>This site has no analytics, cookies, or trackers.</span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="/assets/site.js" defer></script>
+</body>
+</html>

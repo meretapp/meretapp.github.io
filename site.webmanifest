@@ -1,0 +1,12 @@
+{
+  "name": "Meret",
+  "short_name": "Meret",
+  "description": "A second brain for musical creativity.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#08070B",
+  "theme_color": "#08070B",
+  "icons": [
+    { "src": "/assets/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

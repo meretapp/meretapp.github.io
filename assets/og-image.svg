@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Meret. A second brain for musical creativity.">
+  <!-- Social share card. Dark canvas, coral mark and wordmark, one waveform line for rhythm.
+       If a platform refuses SVG previews, rasterise this to og-image.png at 1200x630. -->
+  <defs>
+    <linearGradient id="coral" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF8A63"/>
+      <stop offset="1" stop-color="#C33A18"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FF6A3D" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#FF6A3D" stop-opacity="0"/>
+    </radialGradient>
+    <style>
+      @font-face { font-family:"Duma"; font-weight:700; src:url("duma-bold.ttf") format("truetype"); }
+    </style>
+  </defs>
+  <rect width="1200" height="630" fill="#08070B"/>
+  <ellipse cx="880" cy="150" rx="520" ry="360" fill="url(#glow)"/>
+  <g transform="translate(96,150)">
+    <rect width="112" height="112" rx="29" fill="url(#coral)"/>
+    <g transform="translate(22.4,29.4) scale(0.82)">
+      <g transform="translate(3,3)">
+        <path fill="#FFFFFF" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"
+          d="M76.1 21.5V59.1H66V21.5C66 18.3 64.8667 15.5667 62.6 13.3C60.4 11.1 57.7 10 54.5 10C51.3 10 48.6 11.1333 46.4 13.4C44.1333 15.6 43 18.3 43 21.5V59.1H33.1V21.5C33.1 18.4333 31.9667 15.7 29.7 13.3C27.3667 11.1 24.6333 10 21.5 10C18.3 10 15.6 11.1 13.4 13.3C11.1333 15.7 10 18.4333 10 21.5V59.1H0V21.5C0 15.5667 2.1 10.5 6.3 6.3C10.5 2.1 15.5667 0 21.5 0C25.3 0 28.8667 1.06667 32.2 3.2C34.4 4.6 36.3333 6.33334 38 8.4C38.8667 7.4 39.7667 6.46667 40.7 5.6C41.6333 4.73333 42.6667 3.93333 43.8 3.2C47.1333 1.06667 50.7 0 54.5 0C60.5 0 65.6 2.1 69.8 6.3C74 10.6333 76.1 15.7 76.1 21.5Z"/>
+      </g>
+    </g>
+  </g>
+  <text x="96" y="360" font-family="Duma, sans-serif" font-weight="700" font-size="112" letter-spacing="4" fill="#F3F0F8">meret<tspan dx="6" baseline-shift="8" font-size="26" fill="#FF6A3D">&#9679;</tspan></text>
+  <text x="98" y="430" font-family="ui-sans-serif, system-ui, Arial, sans-serif" font-size="40" fill="#C9C4D6" font-weight="600">A second brain for musical creativity.</text>
+  <text x="98" y="486" font-family="ui-sans-serif, system-ui, Arial, sans-serif" font-size="26" fill="#9E99AC">Capture the idea the moment it strikes. Find it again months later.</text>
+  <g transform="translate(98,545)" fill="none" stroke="#FF6A3D" stroke-width="4" stroke-linecap="round">
+    <path d="M0 20 L0 20" opacity="0"/>
+    <line x1="0"  y1="10" x2="0"  y2="30"/>
+    <line x1="14" y1="0"  x2="14" y2="40"/>
+    <line x1="28" y1="14" x2="28" y2="26"/>
+    <line x1="42" y1="-6" x2="42" y2="46" stroke="#FF8A63"/>
+    <line x1="56" y1="6"  x2="56" y2="34"/>
+    <line x1="70" y1="16" x2="70" y2="24"/>
+    <line x1="84" y1="-2" x2="84" y2="42"/>
+    <line x1="98" y1="12" x2="98" y2="28"/>
+    <line x1="112" y1="4" x2="112" y2="36" stroke="#8E7BFF"/>
+    <line x1="126" y1="16" x2="126" y2="24"/>
+    <line x1="140" y1="8" x2="140" y2="32"/>
+    <line x1="154" y1="0" x2="154" y2="40"/>
+    <line x1="168" y1="15" x2="168" y2="25"/>
+    <line x1="182" y1="6" x2="182" y2="34"/>
+    <line x1="196" y1="12" x2="196" y2="28"/>
+  </g>
+</svg>
