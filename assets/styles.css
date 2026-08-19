@@ -44,7 +44,9 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+/* scroll-padding-top keeps every in-page anchor target clear of the sticky header
+   instead of landing underneath it. */
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 
 .visually-hidden {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
@@ -118,8 +120,11 @@ h1, h2, h3 { line-height: 1.1; letter-spacing: -0.02em; margin: 0; }
 .nav-cta:hover { border-color: var(--accent-line); }
 @media (max-width: 720px) { .site-header nav a:not(.nav-cta) { display: none; } }
 
-/* Ambient glow behind the hero */
-.hero { position: relative; padding: 84px 0 56px; overflow: hidden; }
+/* Ambient glow behind the hero.
+   overflow: clip (not hidden) contains the glow pseudo-elements without turning the
+   hero into a programmatically scrollable box, which otherwise traps an anchor jump
+   to the waitlist form inside the hero and blocks scrolling until a page refresh. */
+.hero { position: relative; padding: 84px 0 56px; overflow: clip; }
 .hero::before {
   content: ""; position: absolute; inset: -20% -10% auto auto;
   width: 780px; height: 620px; pointer-events: none;
@@ -368,6 +373,10 @@ section { position: relative; }
   margin-bottom: 30px; font-weight: 600; font-size: 14px; color: var(--muted);
 }
 .legal .back:hover { color: var(--text); }
+/* The arrow carries the coral accent so the back link reads as branded and clickable,
+   while the label stays in the muted-to-white register the header navigation uses. */
+.legal .back .arrow { color: var(--accent); transition: transform 0.15s ease; }
+.legal .back:hover .arrow { transform: translateX(-2px); }
 .legal h1 { font-size: clamp(2rem, 4vw, 2.7rem); font-weight: 800; margin: 0 0 8px; }
 .legal .updated { color: var(--faint); font-family: var(--mono); font-size: 13px; margin: 0 0 32px; }
 .legal .lede { color: var(--text); font-size: 1.12rem; margin: 0 0 28px; }
@@ -400,10 +409,15 @@ section { position: relative; }
 .legal tbody td:first-child { color: var(--text); font-weight: 600; white-space: nowrap; }
 @media (max-width: 560px) { .legal tbody td:first-child { white-space: normal; } }
 
-/* A short cross-link row at the foot of a legal page */
+/* A short cross-link row at the foot of a legal page. These are related pages with no
+   inherent order, so they carry no directional arrow, just a quiet "See also" label. */
 .legal .also {
   margin-top: 48px; padding-top: 26px; border-top: 1px solid var(--line-soft);
-  display: flex; gap: 20px; flex-wrap: wrap;
+  display: flex; align-items: center; gap: 8px 20px; flex-wrap: wrap;
+}
+.legal .also .also-label {
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--faint);
 }
 .legal .also a { font-weight: 600; font-size: 14px; }
 
