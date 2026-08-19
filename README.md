@@ -9,7 +9,7 @@ way `debenapp/debenapp.github.io` serves debenapp.com. Create a repo named
 ## Structure
 
 - `index.html` - the landing page. Brand tokens follow the app repo's `docs/design/design.html` and `ui/theme/Color.kt`.
-- `privacy/`, `security/`, `terms/` - the supporting pages, in a shared dark prose layout. Privacy follows the app repo's `docs/legal/PRIVACY_POLICY.md`.
+- `about/`, `privacy/`, `security/`, `terms/` - the supporting pages, in a shared dark prose layout. Privacy follows the app repo's `docs/legal/PRIVACY_POLICY.md`.
 - `assets/styles.css` - the stylesheet. One dark canvas, coral for action, violet for the idea.
 - `assets/duma-bold.ttf` - the Duma Bold wordmark face, self hosted so the site makes no external requests.
 - `assets/site.js` - one small progressive enhancement for the waitlist forms.
