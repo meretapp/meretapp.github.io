@@ -19,10 +19,14 @@ A plain static site. No build step, no framework, no dependencies. It is served 
 
 ## Run locally
 
-Any static server works, for example:
+Any static server works. From the repo root:
 
 ```
-python3 -m http.server 8000
+# Node
+npx http-server -p 8000
+
+# Bun
+bunx http-server -p 8000
 ```
 
 Then open http://localhost:8000/.
